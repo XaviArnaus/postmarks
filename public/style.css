@@ -7,7 +7,7 @@ you're new to CSS they may seem a little complicated, but you can scroll down
 to this section's matching END comment to see page-specific styles.
 ******************************************************************************/
 
-@font-face {
+/* @font-face {
   font-family: 'Public Sans';
   src: url('/PublicSans-VariableFont_wght.ttf');
 }
@@ -16,18 +16,18 @@ to this section's matching END comment to see page-specific styles.
   font-family: 'Public Sans';
   font-style: italic;
   src: url('/PublicSans-Italic-VariableFont_wght.ttf');
-}
+} */
 
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #ffe6f8;
-  --color-text-main: #000000;
+  --color-bg: white;
+  --color-text-main: #777777;
   --color-primary: #d7f5ef;
   --wrapper-height: 40vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
-  --font-family: 'Public Sans', sans-serif;
-  --font-family-header: 'Public Sans', sans-serif;
+  --font-family: "Roboto", sans-serif;
+  --font-family-header: "Roboto", sans-serif;
 }
 
 /* Basic page style resets */
@@ -38,35 +38,6 @@ to this section's matching END comment to see page-specific styles.
   display: none !important;
 }
 
-/* Navigation grid */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem auto 0;
-  padding: 1rem 0 0.75rem 0;
-  width: 100%;
-  flex-wrap: wrap;
-  border-top: 4px solid #fff;
-}
-
-.footer a:not(.btn--remix):link,
-a:not(.btn--remix):visited {
-  font-family: 'Public Sans', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  text-decoration: none;
-  border-style: none;
-}
-.footer a:hover {
-  background: var(--color-primary);
-}
-
-.footer .links {
-  padding: 0.5rem 1rem 1.5rem;
-  white-space: nowrap;
-}
-
 .divider {
   padding: 0 1rem;
 }
@@ -75,16 +46,29 @@ END Glitch hello-app default styles
 ******************************************************************************/
 
 body {
-  font-family: 'Public Sans', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--color-bg);
 }
 
 /* Page structure */
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: grid;
-  grid-template-columns: 33.334% 66.667%;
-  margin: 0 1rem;
+/* All others ----------- */
+@media only screen and (min-width : 451px) {
+  .wrapper {
+    min-height: var(--wrapper-height);
+    display: grid;
+    grid-template-columns: 25% 75%;
+    margin: 0 1rem;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 450px) {
+  .wrapper {
+    min-height: var(--wrapper-height);
+    display: grid;
+    grid-template-rows: 12% 88%;
+    margin: 0 1rem;
+  }
 }
 
 .content {
@@ -92,7 +76,9 @@ body {
   flex-direction: column;
   align-items: left;
   justify-content: left;
-  max-width: 600px;
+  max-width: 700px;
+  border-left: #777777 solid 1px;
+  padding-left: 15px;
 }
 
 p,
@@ -108,8 +94,8 @@ label.small {
 
 /* Title h1 style */
 h1 {
-  color: #2800ff;
-  font-family: 'Public Sans', sans-serif;
+  color: #777777;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
@@ -121,7 +107,11 @@ h1 {
 h1 a {
   text-decoration: none;
   font-weight: 600;
-  color: #2800ff !important;
+  color: #777777 !important;
+}
+
+a {
+  color: #777777;
 }
 
 /* Very light scaling for our illustration */
@@ -138,7 +128,7 @@ h1 a {
 /* Styles for our poll form and its results */
 .poll-form,
 .poll-results {
-  background-color: #fff3fc;
+  background-color: white;
   padding: 0 16px 16px 16px;
   border-radius: 8px;
 }
@@ -156,6 +146,9 @@ input {
   border-radius: 4px;
   padding: 0.5rem 1rem;
 }
+input#copy-bookmarklet {
+  width: 300px;
+}
 button {
   cursor: pointer;
 }
@@ -172,14 +165,14 @@ label {
   font-size: 1rem;
 }
 h2 {
-  color: #2800ff;
+  color: #777777;
 }
 
 /* Admin page */
 table {
   text-align: left;
   border-collapse: collapse;
-  background-color: #fff3fc;
+  background-color: white;
 }
 td,
 th {
@@ -193,25 +186,46 @@ a {
 p.error,
 p.error a:link,
 p.error a:visited {
-  color: #2800ff;
+  color: #777777;
 }
 
-.header {
-  display: grid;
-  grid-template-columns: 125px 2fr 1fr;
-  justify-content: flex-start;
-  align-items: center;
+/* All others ----------- */
+@media only screen and (min-width : 451px) {
+  .header {
+    display: grid;
+    grid-template-columns: 125px 2fr 1fr;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .header .logo img {
+    margin-left: -15px;
+    height: 125px;
+    width: auto;
+  }
+  .header .title {
+    height: 100%;
+  }
 }
 
-.header .title {
-  height: 100%;
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 450px) {
+  .header {
+    display: grid;
+    grid-template-rows: 0px 2fr 1fr;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .header .logo img {
+    display: none;
+  }
+  .header .title {
+    margin-top: -15px;
+    height: 100%;
+  }
 }
 
-.header .logo img {
-  margin-left: -15px;
-  height: 125px;
-  width: auto;
-}
+
 .header .menu {
   display: flex;
   flex-direction: row;
@@ -223,6 +237,11 @@ p.error a:visited {
 
 .bookmark {
   margin-bottom: 40px;
+}
+
+.bookmark .headline a {
+  font-size: 25px;
+  color: #333333 !important
 }
 
 .bookmark .subhead {
@@ -238,6 +257,7 @@ p.error a:visited {
 
 .bookmark .description {
   margin-bottom: 10px;
+  color: #777777
 }
 
 .bookmark .tags a,
@@ -250,6 +270,19 @@ p.error a:visited {
 
 .bookmark .tags .tag {
   margin-right: 0.5rem;
+  background-color: #337ab7;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.bookmark .tags .tag a {
+  color: #fff;
 }
 
 .bookmark .tags .tag-op {
@@ -280,6 +313,26 @@ textarea {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.tag-list li a{
+  color: #fff;
+}
+
+.tag-list li{
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #FF9600;
+  padding: .2em .6em .3em;
+  /* font-size: 75%; */
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
 }
 
 .bio {
