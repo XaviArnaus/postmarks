@@ -1,28 +1,17 @@
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/PublicSans-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  font-style: italic;
-  src: url('/PublicSans-Italic-VariableFont_wght.ttf');
-} */
-
 :root {
-  --font-family: 'Public Sans', sans-serif;
+  --font-family: "Roboto", sans-serif;
   --font-size: 16px;
   --color-background: #fff1fc;
-  --color-foreground: #000000;
-  --color-accent: #2914a0;
-  --color-link: #2800ff;
+  --color-foreground: #777777;
+  --color-accent: #777777;
+  --color-link: #23527c;
   --color-dimmed: #545454;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 [hidden] {
@@ -44,7 +33,7 @@ html {
 }
 
 .btn--remix {
-  font-family: 'Public Sans', sans-serif;
+  font-family: '"Roboto', sans-serif;
   padding: 0.75rem 1rem;
   font-size: 1.1rem;
   line-height: 1rem;
@@ -87,7 +76,7 @@ html {
 }
 
 .footer a:not(.btn--remix) {
-  font-family: 'Public Sans', sans-serif;
+  font-family: '"Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1.1rem;
@@ -95,13 +84,13 @@ html {
   border-style: none;
 }
 
-body {
-  font-family: 'Public Sans', sans-serif;
+/* body {
+  font-family: '"Roboto', sans-serif;
   background-color: var(--color-background);
   padding: 0 1rem;
   max-width: 67.5rem;
   margin: 0 auto;
-}
+} */
 
 a {
   color: var(--color-link);
@@ -138,10 +127,8 @@ a {
 .content {
   grid-row: 1;
   grid-column: 2;
-  /* XA: check 
   border-left: #777777 solid 1px;
   padding-left: 15px;
-  */
 }
 
 @media (max-width: 599px) {
@@ -237,11 +224,15 @@ p.error a {
 }
 
 .header .container {
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  border-bottom: .25rem solid #fff;
-  padding: 1rem 0;
-  margin-bottom: 2rem;
+  /* border-bottom: .25rem solid #fff; */
+  /* padding: 1rem 0; */
+  /* margin-bottom: 2rem; */
+}
+
+.header h2 {
+  margin-bottom: 10px;
 }
 
 @media (min-width: 600px) {
@@ -283,16 +274,25 @@ p.error a {
 }
 
 .menu {
-  /* XA: check
+  align-self: center;
   display: flex;
   flex-wrap: wrap;
-  */
-  justify-content: space-between;
+  justify-content: end;
   gap: 1rem;
+  width: 100%;
 }
 
 .header .menu a {
   margin: 0 5px;
+  color: var(--color-accent);
+}
+
+@media (max-width: 599px) {
+  .header .menu a {
+    font-size: 1rem;
+    margin: 0 2px;
+    line-height: normal;
+  }
 }
 
 .bookmark {
