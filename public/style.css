@@ -181,8 +181,16 @@ input#copy-bookmarklet {
 }
 */
 
-button {
+button.btn {
   cursor: pointer;
+  font-size: 20pt;
+  background-color: #337ab7;
+  padding: .2em .6em .3em;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
 }
 
 input,
