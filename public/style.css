@@ -131,6 +131,16 @@ a {
   padding-left: 15px;
 }
 
+/* Smartphones (portrait) ----------- */
+@media (max-width: 450px) {
+  .content {
+    grid-row: 1;
+    grid-column: 1;
+    border-left: 0px;
+    padding-left: 0;
+  }
+}
+
 @media (max-width: 599px) {
   .content:not(:only-child) {
     margin-bottom: 2rem;
