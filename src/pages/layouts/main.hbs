@@ -110,11 +110,17 @@
     <div class="container">
       <div class="row">
         <div class="wrapper">
-          {{> tag_list tags=tags}}
           <div class="content" role="main">
-            <h2>{{title}}</h2>
-          {{{body}}}
+            {{^if hideTitle}}
+              <h2>{{title}}</h2>
+            {{/if}}
+            {{{body}}}
           </div>
+          {{#if adminLinks}}
+            {{> admin_subnav links=adminLinks currentPath=currentPath}}
+          {{else}}
+            {{> tag_list tags=tags}}
+          {{/if}}
         </div>
       </div>
     </div>
