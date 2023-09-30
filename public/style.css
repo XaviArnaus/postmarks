@@ -101,7 +101,7 @@ a {
   min-height: 40vh;
   margin: 2rem 0;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 @media (min-width: 600px) {
@@ -535,6 +535,8 @@ a.bookmark-date {
 
 .bookmark-permalink-title {
   margin-bottom: 0;
+  font-size: 25px;
+  color: #333333 !important
 }
 
 .external-link {
