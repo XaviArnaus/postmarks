@@ -124,6 +124,10 @@ a {
   grid-column: 1;
 }
 
+.wrapper > * {
+  order: 2;
+}
+
 .content {
   grid-row: 1;
   grid-column: 2;
@@ -526,6 +530,7 @@ a.bookmark-date {
   font-size: .875rem;
   line-height: 1.25rem;
   color: var(--color-dimmed);
+  order: 1;
 }
 
 .admin-links a {
