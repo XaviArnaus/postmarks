@@ -8,3 +8,4 @@ account.json
 .sqlite_history
 *.patch
 request_logs.txt
+.DS_Store
